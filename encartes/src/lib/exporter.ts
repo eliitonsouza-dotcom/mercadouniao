@@ -20,13 +20,38 @@ export async function pageToPng(node: HTMLElement, format: "png" | "jpeg" = "png
   return render(node, opts);
 }
 
-export function download(dataUrl: string, filename: string) {
+interface ClaudeHost {
+  use?: (name: string) => Promise<{ save: (r: { filename: string; data: Blob }) => Promise<unknown> } | null>;
+}
+
+async function dataUrlToBlob(dataUrl: string): Promise<Blob> {
+  return (await fetch(dataUrl)).blob();
+}
+
+/** salva o arquivo: pelo visualizador do Claude quando estiver dentro dele, senão download normal */
+export async function download(data: string | Blob, filename: string): Promise<void> {
+  const host = (globalThis as { claude?: ClaudeHost }).claude;
+  if (host?.use) {
+    const dl = await host.use("downloads").catch(() => null);
+    if (dl) {
+      const blob = typeof data === "string" ? await dataUrlToBlob(data) : data;
+      try {
+        await dl.save({ filename, data: blob });
+      } catch (e) {
+        const code = (e as { code?: string }).code;
+        if (code !== "declined") throw new Error((e as { message?: string }).message ?? "Não foi possível salvar o arquivo");
+      }
+      return;
+    }
+  }
+  const url = typeof data === "string" ? data : URL.createObjectURL(data);
   const a = document.createElement("a");
-  a.href = dataUrl;
+  a.href = url;
   a.download = filename;
   document.body.appendChild(a);
   a.click();
   a.remove();
+  if (typeof data !== "string") setTimeout(() => URL.revokeObjectURL(url), 5000);
 }
 
 export async function pagesToPdf(nodes: HTMLElement[], filename: string) {
@@ -37,7 +62,7 @@ export async function pagesToPdf(nodes: HTMLElement[], filename: string) {
     if (i > 0) pdf.addPage([PAGE_W, PAGE_H], "portrait");
     pdf.addImage(jpg, "JPEG", 0, 0, PAGE_W, PAGE_H);
   }
-  pdf.save(filename);
+  await download(pdf.output("blob"), filename);
 }
 
 export function slug(s: string): string {

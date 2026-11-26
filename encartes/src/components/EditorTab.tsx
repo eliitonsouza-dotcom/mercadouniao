@@ -1,5 +1,6 @@
 "use client";
 
+import { useConfirm } from "./Confirm";
 import { useRef, useState, type DragEvent } from "react";
 import { download, pageToPng, pagesToPdf, slug } from "@/lib/exporter";
 import { TEMPLATE_ORDER, TEMPLATES } from "@/lib/layout";
@@ -15,9 +16,15 @@ const DND = "application/x-encarte-item";
 export function EditorTab({ goToList }: { goToList: () => void }) {
   const { state, dispatch, resolve, unplacedIds } = useStore();
   const [sel, setSel] = useState<Sel>(null);
-  const [scale, setScale] = useState(0.42);
+  const [scale, setScale] = useState(() => (typeof window === "undefined" ? 0.42 : Math.min(0.42, (window.innerWidth - 40) / 1080)));
   const [busy, setBusy] = useState<string | null>(null);
+  const ask = useConfirm();
   const nodes = useRef(new Map<string, HTMLDivElement>());
+  const [err, setErr] = useState<string | null>(null);
+  const alertMsg = (m: string) => {
+    setErr(m);
+    setTimeout(() => setErr(null), 6000);
+  };
 
   if (!state.pages.length) {
     return (
@@ -54,7 +61,10 @@ export function EditorTab({ goToList }: { goToList: () => void }) {
     setBusy(`Gerando página ${i + 1}…`);
     try {
       const png = await pageToPng(node);
-      download(png, `encarte-${String(i + 1).padStart(2, "0")}-${slug(state.pages[i].title)}.png`);
+      await download(png, `encarte-${String(i + 1).padStart(2, "0")}-${slug(state.pages[i].title)}.png`);
+    } catch (e) {
+      setBusy(null);
+      alertMsg((e as Error).message);
     } finally {
       setBusy(null);
     }
@@ -74,6 +84,8 @@ export function EditorTab({ goToList }: { goToList: () => void }) {
     try {
       const ns = state.pages.map((p) => nodes.current.get(p.id)).filter((n): n is HTMLDivElement => !!n);
       await pagesToPdf(ns, "encarte.pdf");
+    } catch (e) {
+      alertMsg((e as Error).message);
     } finally {
       setBusy(null);
     }
@@ -86,7 +98,7 @@ export function EditorTab({ goToList }: { goToList: () => void }) {
           <span className="text-sm font-semibold">{state.pages.length} páginas</span>
           <label className="ml-2 flex items-center gap-2 text-xs text-neutral-500">
             zoom
-            <input type="range" min={0.25} max={0.8} step={0.01} value={scale} onChange={(e) => setScale(Number(e.target.value))} />
+            <input type="range" min={0.2} max={0.8} step={0.01} value={scale} onChange={(e) => setScale(Number(e.target.value))} />
           </label>
           <div className="ml-auto flex flex-wrap gap-2">
             <button
@@ -103,6 +115,7 @@ export function EditorTab({ goToList }: { goToList: () => void }) {
             </button>
           </div>
         </div>
+        {err && <div className="fixed bottom-4 left-1/2 z-30 -translate-x-1/2 rounded bg-red-700 px-4 py-2 text-sm text-white">{err}</div>}
         {busy && <div className="fixed bottom-4 left-1/2 z-30 -translate-x-1/2 rounded bg-neutral-900 px-4 py-2 text-sm text-white">{busy}</div>}
 
         <div className="flex flex-wrap gap-6">
@@ -139,7 +152,7 @@ export function EditorTab({ goToList }: { goToList: () => void }) {
                 <button
                   className="px-1 text-neutral-400 hover:text-red-600"
                   title="Excluir página (os produtos vão para “Fora do encarte”)"
-                  onClick={() => confirm("Excluir esta página?") && dispatch({ type: "deletePage", pageId: page.id })}
+                  onClick={async () => (await ask("Excluir esta página? Os produtos dela vão para “Fora do encarte”.", "Excluir")) && dispatch({ type: "deletePage", pageId: page.id })}
                 >
                   ✕
                 </button>

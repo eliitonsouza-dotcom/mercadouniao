@@ -1,5 +1,6 @@
 "use client";
 
+import { useConfirm } from "./Confirm";
 import { useState } from "react";
 import { keyOf } from "@/lib/imagebank";
 import { TEMPLATES } from "@/lib/layout";
@@ -13,6 +14,7 @@ export function ItemPanel({ itemId, slot, onDone }: { itemId: string; slot: Slot
   const { state, dispatch, resolve } = useStore();
   const it = state.items[itemId];
   const [picker, setPicker] = useState<number | null>(null);
+  const ask = useConfirm();
   if (!it) return null;
   const upd = (patch: Partial<Item>) => dispatch({ type: "updateItem", id: it.id, patch });
   const page = slot ? state.pages.find((p) => p.id === slot.pageId) : undefined;
@@ -213,8 +215,8 @@ export function ItemPanel({ itemId, slot, onDone }: { itemId: string; slot: Slot
         )}
         <button
           className="btn text-red-700"
-          onClick={() => {
-            if (confirm(`Excluir "${it.name}"?`)) {
+          onClick={async () => {
+            if (await ask(`Excluir "${it.name}"?`, "Excluir")) {
               dispatch({ type: "deleteItem", id: it.id });
               onDone();
             }

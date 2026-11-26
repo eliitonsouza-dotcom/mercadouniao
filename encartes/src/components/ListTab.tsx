@@ -1,5 +1,6 @@
 "use client";
 
+import { useConfirm } from "./Confirm";
 import { useMemo } from "react";
 import { distribute } from "@/lib/layout";
 import { assignImages } from "@/lib/match";
@@ -19,6 +20,7 @@ const SECTIONS = Object.keys(SECTION_LABEL) as Section[];
 
 export function ListTab({ onGenerated }: { onGenerated: () => void }) {
   const { state, dispatch, bank } = useStore();
+  const ask = useConfirm();
   const items = state.order.map((id) => state.items[id]).filter(Boolean);
 
   const bySection = useMemo(() => {
@@ -28,15 +30,15 @@ export function ListTab({ onGenerated }: { onGenerated: () => void }) {
     return m;
   }, [items]);
 
-  function interpret() {
-    if (state.pages.length && !confirm("Interpretar de novo apaga o encarte atual. Continuar?")) return;
+  async function interpret() {
+    if (state.pages.length && !(await ask("Interpretar de novo apaga o encarte atual. Continuar?", "Interpretar"))) return;
     const r = parseList(state.sourceText);
     dispatch({ type: "parsed", items: r.items, review: r.review });
     if (r.validity.end) dispatch({ type: "brand", patch: { validityEnd: r.validity.end } });
   }
 
-  function generate() {
-    if (state.pages.length && !confirm("Gerar de novo refaz todas as páginas (as edições de posição se perdem). Continuar?")) return;
+  async function generate() {
+    if (state.pages.length && !(await ask("Gerar de novo refaz todas as páginas (as edições de posição se perdem). Continuar?", "Gerar de novo"))) return;
     const withImgs = assignImages(items, bank);
     dispatch({ type: "setItems", items: withImgs });
     dispatch({ type: "setPages", pages: distribute(withImgs) });

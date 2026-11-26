@@ -187,6 +187,9 @@ interface Ctx {
 const StoreCtx = createContext<Ctx | null>(null);
 
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+/** versão em arquivo único: fotos e marca embutidas como data: URI */
+const INLINE_ASSETS: Record<string, string> | undefined =
+  typeof window !== "undefined" ? (window as { __ENCARTES_ASSETS__?: Record<string, string> }).__ENCARTES_ASSETS__ : undefined;
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, EMPTY);
@@ -255,10 +258,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const resolve = useCallback(
     (ref: string | null | undefined) => {
-      if (!ref) return `${BASE_PATH}/placeholder.svg`;
+      if (!ref) return INLINE_ASSETS?.["placeholder.svg"] ?? `${BASE_PATH}/placeholder.svg`;
       if (ref.startsWith("idb:bank:")) return userData[ref.slice(9)] ?? `${BASE_PATH}/placeholder.svg`;
       if (ref.startsWith("idb:assets:")) return assets[ref.slice(11)] ?? `${BASE_PATH}/placeholder.svg`;
       if (/^(data:|https?:|blob:)/.test(ref)) return ref;
+      const inlined = INLINE_ASSETS?.[ref];
+      if (inlined) return inlined;
       return `${BASE_PATH}/${ref}`;
     },
     [userData, assets],
@@ -269,7 +274,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     for (const f of files) {
       const data = await fileToDataUrl(f);
       const rec = { id: uid("b"), key: keyOverride ?? keyFromFilename(f.name), data };
-      await idb.put("bank", rec);
+      await idb.put("bank", rec).catch(() => {}); // sem IndexedDB: fica só nesta sessão
       recs.push(rec);
     }
     setUserBank((b) => [...recs, ...b]);
@@ -278,7 +283,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const removeBankEntry = useCallback(async (src: string) => {
     const id = src.replace("idb:bank:", "");
-    await idb.del("bank", id);
+    await idb.del("bank", id).catch(() => {});
     setUserBank((b) => b.filter((x) => x.id !== id));
   }, []);
 
@@ -288,7 +293,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const cur = userBank.find((x) => x.id === id);
       if (!cur) return;
       const next = { ...cur, ...patch };
-      await idb.put("bank", next);
+      await idb.put("bank", next).catch(() => {});
       setUserBank((b) => b.map((x) => (x.id === id ? next : x)));
     },
     [userBank],
@@ -297,7 +302,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const setAsset = useCallback(async (file: File) => {
     const data = await fileToDataUrl(file, 1600);
     const id = uid("a");
-    await idb.put("assets", { id, data });
+    await idb.put("assets", { id, data }).catch(() => {});
     setAssets((a) => ({ ...a, [id]: data }));
     return `idb:assets:${id}`;
   }, []);

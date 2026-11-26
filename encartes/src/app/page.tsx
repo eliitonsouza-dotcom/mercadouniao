@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BankTab } from "@/components/BankTab";
 import { BrandTab } from "@/components/BrandTab";
+import { ConfirmProvider } from "@/components/Confirm";
 import { EditorTab } from "@/components/EditorTab";
 import { ListTab } from "@/components/ListTab";
 import { StoreProvider, useStore } from "@/lib/store";
@@ -56,7 +57,9 @@ function App() {
 export default function Home() {
   return (
     <StoreProvider>
-      <App />
+      <ConfirmProvider>
+        <App />
+      </ConfirmProvider>
     </StoreProvider>
   );
 }

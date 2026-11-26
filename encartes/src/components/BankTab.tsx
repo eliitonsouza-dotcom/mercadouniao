@@ -1,5 +1,6 @@
 "use client";
 
+import { useConfirm } from "./Confirm";
 import { useMemo, useRef, useState } from "react";
 import { assignImages } from "@/lib/match";
 import { useStore } from "@/lib/store";
@@ -9,6 +10,7 @@ export function BankTab() {
   const { bank, resolve, addBankFiles, removeBankEntry, updateBankEntry, state, dispatch } = useStore();
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState(false);
+  const ask = useConfirm();
   const [msg, setMsg] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const list = useMemo(() => (q.trim() ? searchBank(bank, q, 500) : bank), [bank, q]);
@@ -101,7 +103,7 @@ export function BankTab() {
                     <button
                       className="text-[11px] text-neutral-400 hover:text-red-600"
                       title="Excluir"
-                      onClick={() => confirm(`Excluir a imagem ${b.key}?`) && removeBankEntry(b.src)}
+                      onClick={async () => (await ask(`Excluir a imagem ${b.key}?`, "Excluir")) && removeBankEntry(b.src)}
                     >
                       ✕
                     </button>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useConfirm } from "./Confirm";
 import { useRef } from "react";
 import { BANNERS, DEFAULT_BRAND, FONTS } from "@/lib/defaults";
 import { distributeGroup } from "@/lib/layout";
@@ -34,6 +35,7 @@ export function BrandTab() {
   const { state, dispatch, resolve, setAsset } = useStore();
   const b = state.brand;
   const set = (patch: Partial<Brand>) => dispatch({ type: "brand", patch });
+  const ask = useConfirm();
   const logoRef = useRef<HTMLInputElement>(null);
   const bannerRef = useRef<HTMLInputElement>(null);
 
@@ -198,14 +200,14 @@ export function BrandTab() {
           </select>
         </div>
 
-        <button className="btn" onClick={() => confirm("Voltar a marca para o padrão?") && set({ ...DEFAULT_BRAND, validityEnd: b.validityEnd })}>
+        <button className="btn" onClick={async () => (await ask("Voltar a marca para o padrão?", "Restaurar")) && set({ ...DEFAULT_BRAND, validityEnd: b.validityEnd })}>
           Restaurar padrão
         </button>
       </div>
 
       <div className="flex justify-center">
         <div className="sticky top-16 h-fit overflow-hidden rounded shadow-md ring-1 ring-black/10">
-          <ScaledPage scale={0.55}>
+          <ScaledPage scale={typeof window === "undefined" ? 0.55 : Math.min(0.55, (window.innerWidth - 40) / 1080)}>
             <FlyerPage page={preview.page} items={preview.items} brand={b} resolve={resolve} />
           </ScaledPage>
         </div>
