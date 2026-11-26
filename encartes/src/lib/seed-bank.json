@@ -1,0 +1,510 @@
+[
+ {
+  "key": "ABACAXI",
+  "src": "bank/abacaxi.jpg"
+ },
+ {
+  "key": "ABOBORA",
+  "src": "bank/abobora.jpg"
+ },
+ {
+  "key": "ACUCAR DOCE DIA",
+  "src": "bank/acucar-doce-dia.jpg"
+ },
+ {
+  "key": "AGUA KAIARY",
+  "src": "bank/agua-kaiary.jpg"
+ },
+ {
+  "key": "AGUA LINDAGUA",
+  "src": "bank/agua-lindagua.jpg"
+ },
+ {
+  "key": "ALHO",
+  "src": "bank/alho.jpg"
+ },
+ {
+  "key": "AMACIANTE TRIEX",
+  "src": "bank/amaciante-triex.jpg"
+ },
+ {
+  "key": "ARROZ BERNARDO",
+  "src": "bank/arroz-bernardo.jpg"
+ },
+ {
+  "key": "ARROZ SOMAR",
+  "src": "bank/arroz-somar.jpg"
+ },
+ {
+  "key": "ASSOLAN",
+  "src": "bank/assolan.jpg"
+ },
+ {
+  "key": "AZEITE ILHA",
+  "src": "bank/azeite-ilha.jpg"
+ },
+ {
+  "key": "AZEITE SANTIAGO",
+  "src": "bank/azeite-santiago.jpg"
+ },
+ {
+  "key": "BANANA NANICA",
+  "src": "bank/banana-nanica.jpg"
+ },
+ {
+  "key": "BANANA TERRA",
+  "src": "bank/banana-terra.jpg"
+ },
+ {
+  "key": "BATATA BEMBRASIL",
+  "src": "bank/batata-bembrasil.jpg"
+ },
+ {
+  "key": "BATATA MONALISA",
+  "src": "bank/batata-monalisa.jpg"
+ },
+ {
+  "key": "BATATA ONDULADA",
+  "src": "bank/batata-ondulada.jpg"
+ },
+ {
+  "key": "BATATA PALHA BERNARDO",
+  "src": "bank/batata-palha-bernardo.jpg"
+ },
+ {
+  "key": "BATATA PALHA VISCONTI",
+  "src": "bank/batata-palha-visconti.jpg"
+ },
+ {
+  "key": "BAX",
+  "src": "bank/bax.jpg"
+ },
+ {
+  "key": "BETERRABA",
+  "src": "bank/beterraba.jpg"
+ },
+ {
+  "key": "BISC LIANE",
+  "src": "bank/bisc-liane.jpg"
+ },
+ {
+  "key": "BLUE RAY",
+  "src": "bank/blue-ray.jpg"
+ },
+ {
+  "key": "BOMBOM LACTA",
+  "src": "bank/bombom-lacta.jpg"
+ },
+ {
+  "key": "BRAHMA SKOL ANTARCTICA",
+  "src": "bank/brahma-skol-antarctica.jpg"
+ },
+ {
+  "key": "CAFE PILAO",
+  "src": "bank/cafe-pilao.jpg"
+ },
+ {
+  "key": "CAFE URUPA",
+  "src": "bank/cafe-urupa.jpg"
+ },
+ {
+  "key": "CALABRESA COOPAVEL",
+  "src": "bank/calabresa-coopavel.jpg"
+ },
+ {
+  "key": "CAMPARI",
+  "src": "bank/campari.jpg"
+ },
+ {
+  "key": "CAMPITOS",
+  "src": "bank/campitos.jpg"
+ },
+ {
+  "key": "CANJIQUINHA RICAL",
+  "src": "bank/canjiquinha-rical.jpg"
+ },
+ {
+  "key": "CENOURA",
+  "src": "bank/cenoura.jpg"
+ },
+ {
+  "key": "CERVEJA MICHELOB",
+  "src": "bank/cerveja-michelob.jpg"
+ },
+ {
+  "key": "CERVEJA ORIGINAL FARDO",
+  "src": "bank/cerveja-original-fardo.jpg"
+ },
+ {
+  "key": "CERVEJA SOL",
+  "src": "bank/cerveja-sol.jpg"
+ },
+ {
+  "key": "CHANTILLY AMELIA",
+  "src": "bank/chantilly-amelia.jpg"
+ },
+ {
+  "key": "CHICKEN BITS",
+  "src": "bank/chicken-bits.jpg"
+ },
+ {
+  "key": "CHOKY",
+  "src": "bank/choky.jpg"
+ },
+ {
+  "key": "CHOPP STEMPEL",
+  "src": "bank/chopp-stempel.jpg"
+ },
+ {
+  "key": "CHUCHU",
+  "src": "bank/chuchu.jpg"
+ },
+ {
+  "key": "COCO VERDE",
+  "src": "bank/coco-verde.jpg"
+ },
+ {
+  "key": "COSTELA MINDINHA",
+  "src": "bank/costela-mindinha.jpg"
+ },
+ {
+  "key": "COSTELA RIPA",
+  "src": "bank/costela-ripa.jpg"
+ },
+ {
+  "key": "CR LEITE ITALAC",
+  "src": "bank/cr-leite-italac.jpg"
+ },
+ {
+  "key": "CR SORO MOCOCA",
+  "src": "bank/cr-soro-mococa.jpg"
+ },
+ {
+  "key": "DETERGENTE TRIEX",
+  "src": "bank/detergente-triex.jpg"
+ },
+ {
+  "key": "DOWNY",
+  "src": "bank/downy.jpg"
+ },
+ {
+  "key": "EXTRATO XAVANTE",
+  "src": "bank/extrato-xavante.jpg"
+ },
+ {
+  "key": "FANTA UVA SPRITE",
+  "src": "bank/fanta-uva-sprite.jpg"
+ },
+ {
+  "key": "FARINHA BASNINI",
+  "src": "bank/farinha-basnini.jpg"
+ },
+ {
+  "key": "FEIJAO MESTRE CUCA",
+  "src": "bank/feijao-mestre-cuca.jpg"
+ },
+ {
+  "key": "FERMENTO DONA BENTA",
+  "src": "bank/fermento-dona-benta.jpg"
+ },
+ {
+  "key": "FIGADO",
+  "src": "bank/figado.jpg"
+ },
+ {
+  "key": "FRISKY",
+  "src": "bank/frisky.jpg"
+ },
+ {
+  "key": "FUBA RICAL",
+  "src": "bank/fuba-rical.jpg"
+ },
+ {
+  "key": "GATORADE ZERO",
+  "src": "bank/gatorade-zero.jpg"
+ },
+ {
+  "key": "GATORADE",
+  "src": "bank/gatorade.jpg"
+ },
+ {
+  "key": "GELADINHO BERNARDO",
+  "src": "bank/geladinho-bernardo.jpg"
+ },
+ {
+  "key": "GELATINA NEILAR",
+  "src": "bank/gelatina-neilar.jpg"
+ },
+ {
+  "key": "HAMBURGUER REZENDE",
+  "src": "bank/hamburguer-rezende.jpg"
+ },
+ {
+  "key": "HEINEKEN",
+  "src": "bank/heineken.jpg"
+ },
+ {
+  "key": "HELLMANNS",
+  "src": "bank/hellmanns.jpg"
+ },
+ {
+  "key": "ICE CABARE",
+  "src": "bank/ice-cabare.jpg"
+ },
+ {
+  "key": "IMPERIO ULTRA",
+  "src": "bank/imperio-ultra.jpg"
+ },
+ {
+  "key": "IOGURTE CANTINHO",
+  "src": "bank/iogurte-cantinho.jpg"
+ },
+ {
+  "key": "IOGURTE NINHO",
+  "src": "bank/iogurte-ninho.jpg"
+ },
+ {
+  "key": "KANECHOM",
+  "src": "bank/kanechom.jpg"
+ },
+ {
+  "key": "LASANHA REZENDE",
+  "src": "bank/lasanha-rezende.jpg"
+ },
+ {
+  "key": "LEITE COCO FREDAO",
+  "src": "bank/leite-coco-fredao.jpg"
+ },
+ {
+  "key": "LEITE COND ITALAC",
+  "src": "bank/leite-cond-italac.jpg"
+ },
+ {
+  "key": "LEITE FERMENTADO REAL",
+  "src": "bank/leite-fermentado-real.jpg"
+ },
+ {
+  "key": "LEITE PIRACANJUBA",
+  "src": "bank/leite-piracanjuba.jpg"
+ },
+ {
+  "key": "LEITE PO PRIMALATTE",
+  "src": "bank/leite-po-primalatte.jpg"
+ },
+ {
+  "key": "LIMAO TAITI",
+  "src": "bank/limao-taiti.jpg"
+ },
+ {
+  "key": "LIMPA TRIEX",
+  "src": "bank/limpa-triex.jpg"
+ },
+ {
+  "key": "LINGUICA BOVINA",
+  "src": "bank/linguica-bovina.jpg"
+ },
+ {
+  "key": "LINGUICA MISTA",
+  "src": "bank/linguica-mista.jpg"
+ },
+ {
+  "key": "LINGUICA TOSCANA",
+  "src": "bank/linguica-toscana.jpg"
+ },
+ {
+  "key": "MAC PEROLA",
+  "src": "bank/mac-perola.jpg"
+ },
+ {
+  "key": "MAC QDELICIA",
+  "src": "bank/mac-qdelicia.jpg"
+ },
+ {
+  "key": "MAC SANDELLA",
+  "src": "bank/mac-sandella.jpg"
+ },
+ {
+  "key": "MACA",
+  "src": "bank/maca.jpg"
+ },
+ {
+  "key": "MAIONESE PRAMESA",
+  "src": "bank/maionese-pramesa.jpg"
+ },
+ {
+  "key": "MANDIOCA",
+  "src": "bank/mandioca.jpg"
+ },
+ {
+  "key": "MARMITEX",
+  "src": "bank/marmitex.jpg"
+ },
+ {
+  "key": "MILHO FUGINI",
+  "src": "bank/milho-fugini.jpg"
+ },
+ {
+  "key": "MISTURA MOCOCA",
+  "src": "bank/mistura-mococa.jpg"
+ },
+ {
+  "key": "MOCOQUINHA",
+  "src": "bank/mocoquinha.jpg"
+ },
+ {
+  "key": "MOCOTO",
+  "src": "bank/mocoto.jpg"
+ },
+ {
+  "key": "MOLHO CALIFRUIT",
+  "src": "bank/molho-califruit.jpg"
+ },
+ {
+  "key": "MOLHO CHURRASCO",
+  "src": "bank/molho-churrasco.jpg"
+ },
+ {
+  "key": "MOLHO PIMENTA",
+  "src": "bank/molho-pimenta.jpg"
+ },
+ {
+  "key": "ORIGINAL RETORNAVEL",
+  "src": "bank/original-retornavel.jpg"
+ },
+ {
+  "key": "OVOS BRANCOS",
+  "src": "bank/ovos-brancos.jpg"
+ },
+ {
+  "key": "OVOS VERMELHOS",
+  "src": "bank/ovos-vermelhos.jpg"
+ },
+ {
+  "key": "PACOQUINHA BERNARDO",
+  "src": "bank/pacoquinha-bernardo.jpg"
+ },
+ {
+  "key": "PACOQUINHA CAMPILAR",
+  "src": "bank/pacoquinha-campilar.jpg"
+ },
+ {
+  "key": "PALETA SUINA",
+  "src": "bank/paleta-suina.jpg"
+ },
+ {
+  "key": "PAO ALHO MEZZANI",
+  "src": "bank/pao-alho-mezzani.jpg"
+ },
+ {
+  "key": "PAO PULLMAN",
+  "src": "bank/pao-pullman.jpg"
+ },
+ {
+  "key": "PAO QUEIJO SORPAN",
+  "src": "bank/pao-queijo-sorpan.jpg"
+ },
+ {
+  "key": "PAPEL PALOMA",
+  "src": "bank/papel-paloma.jpg"
+ },
+ {
+  "key": "PAPEL PRIMAVERA",
+  "src": "bank/papel-primavera.jpg"
+ },
+ {
+  "key": "PAPEL SCALA",
+  "src": "bank/papel-scala.jpg"
+ },
+ {
+  "key": "PESSEGO OLE",
+  "src": "bank/pessego-ole.jpg"
+ },
+ {
+  "key": "PIPOCA RICAL",
+  "src": "bank/pipoca-rical.jpg"
+ },
+ {
+  "key": "PONTA PEITO",
+  "src": "bank/ponta-peito.jpg"
+ },
+ {
+  "key": "PRINGLES",
+  "src": "bank/pringles.jpg"
+ },
+ {
+  "key": "REQUEIJAO IMAGEM",
+  "src": "bank/requeijao-imagem.jpg"
+ },
+ {
+  "key": "ROSQUINHA EMEGE",
+  "src": "bank/rosquinha-emege.jpg"
+ },
+ {
+  "key": "ROSQUINHA RANCHEIRO",
+  "src": "bank/rosquinha-rancheiro.jpg"
+ },
+ {
+  "key": "SABAO BRILHANTE",
+  "src": "bank/sabao-brilhante.jpg"
+ },
+ {
+  "key": "SABAO GUAIRA",
+  "src": "bank/sabao-guaira.jpg"
+ },
+ {
+  "key": "SABONETE GIPSY",
+  "src": "bank/sabonete-gipsy.jpg"
+ },
+ {
+  "key": "SALSICHA FRIATO",
+  "src": "bank/salsicha-friato.jpg"
+ },
+ {
+  "key": "SORVETE NOBRELI",
+  "src": "bank/sorvete-nobreli.jpg"
+ },
+ {
+  "key": "STEAK FRANGO",
+  "src": "bank/steak-frango.jpg"
+ },
+ {
+  "key": "STELLA PURE GOLD",
+  "src": "bank/stella-pure-gold.jpg"
+ },
+ {
+  "key": "SUCO SABORUVA",
+  "src": "bank/suco-saboruva.jpg"
+ },
+ {
+  "key": "SUKITA",
+  "src": "bank/sukita.jpg"
+ },
+ {
+  "key": "TAMPICO",
+  "src": "bank/tampico.jpg"
+ },
+ {
+  "key": "TAPIOCA LOPES",
+  "src": "bank/tapioca-lopes.jpg"
+ },
+ {
+  "key": "TOMATE",
+  "src": "bank/tomate.jpg"
+ },
+ {
+  "key": "TORRADA VISCONTI",
+  "src": "bank/torrada-visconti.jpg"
+ },
+ {
+  "key": "TRIGO DONA BENTA",
+  "src": "bank/trigo-dona-benta.jpg"
+ },
+ {
+  "key": "VINAGRE VIRROSAS",
+  "src": "bank/vinagre-virrosas.jpg"
+ },
+ {
+  "key": "VINHO PERGOLA",
+  "src": "bank/vinho-pergola.jpg"
+ }
+]
